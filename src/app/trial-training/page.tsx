@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Mail, MessageCircle, Phone } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
-import { siteConfig } from "@/lib/site-config";
+import TrialBookingWizard from "@/components/trial-booking/TrialBookingWizard";
 
 export const metadata: Metadata = {
   title: "Trial Training",
@@ -71,44 +69,8 @@ export default function TrialTrainingPage() {
           </div>
         </div>
 
-        <div className="mt-12 rounded-2xl bg-brand-black p-8 text-white">
-          <h3 className="text-xl font-bold">Book Your Free Trial</h3>
-          <p className="mt-2 text-gray-400">
-            Contact us to schedule your first class. We&apos;ll find a time that
-            works for you.
-          </p>
-          <div className="mt-6 flex flex-col gap-4 sm:flex-row">
-            <a
-              href={siteConfig.social.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-blue px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-blue-dark"
-            >
-              <MessageCircle className="h-5 w-5" />
-              WhatsApp
-            </a>
-            <a
-              href={siteConfig.social.email}
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-600 px-6 py-3 font-semibold transition-colors hover:bg-gray-800"
-            >
-              <Mail className="h-5 w-5" />
-              Email Us
-            </a>
-            <a
-              href={`tel:${siteConfig.phone}`}
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-600 px-6 py-3 font-semibold transition-colors hover:bg-gray-800"
-            >
-              <Phone className="h-5 w-5" />
-              Call Us
-            </a>
-          </div>
-          <p className="mt-6 text-sm text-gray-500">
-            Or visit us at{" "}
-            <Link href="/contact" className="text-brand-blue hover:underline">
-              our contact page
-            </Link>
-            .
-          </p>
+        <div className="mt-12">
+          <TrialBookingWizard />
         </div>
       </div>
     </>

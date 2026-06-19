@@ -13,9 +13,16 @@ export default function HeroSection() {
         className="object-cover object-center"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/60 md:to-transparent" />
 
-      <div className="relative mx-auto flex min-h-[85vh] max-w-7xl items-center px-4 sm:px-6 lg:px-8">
+      {/* Social links — pinned to browser right edge, on white strip (not over photo) */}
+      <div className="absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 md:block">
+        <div className="flex flex-col items-center gap-4 border-l border-gray-100 bg-white/95 px-3 py-8 shadow-[-6px_0_16px_rgba(0,0,0,0.04)] backdrop-blur-sm">
+          <SocialIcons vertical />
+        </div>
+      </div>
+
+      <div className="relative mx-auto flex min-h-[85vh] max-w-7xl items-center px-4 sm:px-6 lg:px-8 md:pr-20">
         <div className="max-w-2xl py-16">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-blue-dark">
             Solothurn, Switzerland
@@ -44,13 +51,9 @@ export default function HeroSection() {
             </Link>
           </div>
         </div>
-
-        <div className="absolute right-4 top-1/2 hidden -translate-y-1/2 sm:right-8 md:block lg:right-12">
-          <SocialIcons vertical />
-        </div>
       </div>
 
-      <div className="absolute bottom-6 left-0 right-0 flex justify-center md:hidden">
+      <div className="absolute bottom-0 right-0 left-0 flex justify-end border-t border-gray-100 bg-white/95 px-4 py-3 backdrop-blur-sm md:hidden">
         <SocialIcons />
       </div>
     </section>

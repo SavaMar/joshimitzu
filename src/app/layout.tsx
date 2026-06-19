@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { AdminStoreProvider } from "@/lib/admin-store";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { siteConfig } from "@/lib/site-config";
@@ -26,9 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans`}>
-        <Navbar />
-        <main className="min-h-screen pt-16">{children}</main>
-        <Footer />
+        <AdminStoreProvider>
+          <Navbar />
+          <main className="min-h-screen pt-16">{children}</main>
+          <Footer />
+        </AdminStoreProvider>
       </body>
     </html>
   );

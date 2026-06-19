@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { schedule } from "@/lib/site-config";
+import ScheduleGrid, { ScheduleLegend } from "@/components/schedule/ScheduleGrid";
 
 export default function ScheduleSection() {
   return (
-    <section className="bg-brand-gray py-20">
+    <section id="schedule" className="scroll-mt-20 bg-brand-gray py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold text-brand-black sm:text-4xl">
@@ -15,44 +15,15 @@ export default function ScheduleSection() {
           </p>
         </div>
 
-        <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left">
-              <thead>
-                <tr className="border-b border-gray-200 bg-brand-black text-white">
-                  <th className="px-6 py-4 text-sm font-semibold">Day</th>
-                  <th className="px-6 py-4 text-sm font-semibold">Time</th>
-                  <th className="px-6 py-4 text-sm font-semibold">Type</th>
-                  <th className="px-6 py-4 text-sm font-semibold">Class</th>
-                </tr>
-              </thead>
-              <tbody>
-                {schedule.map((row, i) => (
-                  <tr
-                    key={`${row.day}-${row.time}-${i}`}
-                    className="border-b border-gray-100 last:border-0 hover:bg-brand-blue/5"
-                  >
-                    <td className="px-6 py-4 font-medium text-brand-black">
-                      {row.day}
-                    </td>
-                    <td className="px-6 py-4 text-gray-600">{row.time}</td>
-                    <td className="px-6 py-4">
-                      <span
-                        className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${
-                          row.type === "Gi"
-                            ? "bg-brand-blue/10 text-brand-blue-dark"
-                            : "bg-gray-100 text-gray-700"
-                        }`}
-                      >
-                        {row.type}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-gray-600">{row.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        <ScheduleGrid />
+
+        <div className="mt-8 text-center">
+          <Link
+            href="/schedule"
+            className="text-sm font-semibold text-brand-blue-dark hover:underline"
+          >
+            View full schedule & class guide →
+          </Link>
         </div>
 
         <div className="mt-10 text-center">

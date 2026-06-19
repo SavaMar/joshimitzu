@@ -6,6 +6,7 @@ import ReviewsSection from "@/components/sections/ReviewsSection";
 import ScheduleSection from "@/components/sections/ScheduleSection";
 import TrainerSection from "@/components/sections/TrainerSection";
 import ArticlesSection from "@/components/sections/ArticlesSection";
+import UpcomingEventSection from "@/components/sections/UpcomingEventSection";
 import FaqSection from "@/components/sections/FaqSection";
 
 export default function HomePage() {
@@ -19,6 +20,7 @@ export default function HomePage() {
       <ScheduleSection />
       <TrainerSection />
       <ArticlesSection />
+      <UpcomingEventSection />
       <FaqSection />
     </>
   );
